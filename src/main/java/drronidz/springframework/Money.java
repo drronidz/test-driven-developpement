@@ -6,5 +6,11 @@ package drronidz.springframework;/*
 */
 
 public class Money {
+    int amount;
     void multiplication(){}
+    public boolean equals(Object object) {
+        Money money = (Money) object;
+        return amount == money.amount;
+
+    }
 }
