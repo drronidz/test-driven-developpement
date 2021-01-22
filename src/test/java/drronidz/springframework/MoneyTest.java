@@ -13,28 +13,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Test
     void multiplicationDollarTest() {
-        Money five = Money.dollar(5);
-        assertEquals(Money.dollar(10),five.times(2));
-        assertEquals(Money.dollar(15),five.times(3));
 
+        Money fiveDollar = Money.dollar(5);
+        assertEquals(Money.dollar(10),fiveDollar.times(2));
+        assertEquals(Money.dollar(15),fiveDollar.times(3));
+
+        Money fiveFranc = Money.franc(5);
+        assertEquals(Money.franc(10),fiveFranc.times(2));
+        assertEquals(Money.franc(15),fiveFranc.times(3));
     }
 
     @Test
-    void equalityDollarTest() {
+    void equalityTest() {
+
         assertEquals(Money.dollar(5),Money.dollar(5));
         assertNotEquals(Money.dollar(5),Money.dollar(8));
+
         assertNotEquals(Money.franc(5),Money.dollar(5));
-    }
-    @Test
-    void multiplicationFrancTest() {
-        Money five = Money.franc(5);
-        assertEquals(Money.franc(10),five.times(2));
-        assertEquals(Money.franc(15),five.times(3));
 
-    }
-
-    @Test
-    void equalityFrancTest() {
         assertEquals(Money.franc(5),Money.franc(5));
         assertNotEquals(Money.franc(5),Money.franc(8));
     }
