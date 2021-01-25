@@ -48,4 +48,28 @@ import static org.junit.jupiter.api.Assertions.*;
         Money reduced = bank.reduce(sum , "USD");
         assertEquals(Money.dollar(10),reduced);
     }
+
+    @Test
+    void plusReturnsSumTest() {
+        Money five = Money.dollar(5);
+        Expression result = five.plus(five);
+        Sum sum = (Sum) result;
+        assertEquals(five,sum.augmend);
+        assertEquals(five,sum.addmend);
+    }
+
+    @Test
+    void reduceSumTest() {
+        Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum , "USD");
+        assertEquals(Money.dollar(7),result);
+    }
+
+    @Test
+    void reduceMoneyTest() {
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
 }
